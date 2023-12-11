@@ -23,6 +23,8 @@ class UserRequest extends FormRequest
                     'name'      => 'required',
                     'phone'     => 'required|unique:users,phone',
                     'password'  => 'required',
+                    'img_profile'  => 'nullable',
+
 
                 ];
             case 'PUT':
