@@ -23,7 +23,7 @@ class ChatController extends Controller
             'recipient_id' => 'required|exists:users,id',
         ]);
         $user = User::findOrFail($validatedData['recipient_id']);
-        PrivateChat::dispatch($validatedData['content'],$user);
+        PrivateChat::dispatch($user,$validatedData['content']);
 
        $content = Message::create([
             'user_id'      => Auth::user()->id,

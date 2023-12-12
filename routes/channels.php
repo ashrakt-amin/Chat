@@ -19,6 +19,6 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
 
-Broadcast::channel('PrivateChat.user.{user}', function (User $user, int $message) {
-    return $user->id === Message::findOrNew($message)->recipient_id;
+Broadcast::channel('PrivateChat.user.{user}', function ($user, $id) {
+    return $user->id === (int) $id ;
 });

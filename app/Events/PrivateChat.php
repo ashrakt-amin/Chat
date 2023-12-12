@@ -17,7 +17,7 @@ class PrivateChat implements ShouldBroadcast
 
         public $content ;
     
-        public function __construct($content , public User $user)
+        public function __construct(public User $user ,$content)
         {
             $this->$content = $content;
          //   $this->$user = $user;
