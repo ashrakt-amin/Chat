@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\ChatController;
 use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Api\Auth\UserLoginController;
 use App\Http\Controllers\Api\Auth\AdminLoginController;
@@ -38,4 +39,10 @@ Route::middleware('auth:admin-api')->group(function () {
     Route::get('/admin', function () {
     return "admin";
 });
+});
+Route::post('/test', [ChatController::class, 'sendMessage']);
+
+Route::middleware('auth:sanctum')->group(function () {
+Route::post('chat/private', [ChatController::class, 'sendPrivateMessage']);
+
 });

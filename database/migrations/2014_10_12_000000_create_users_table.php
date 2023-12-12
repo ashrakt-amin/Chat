@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('phone')->unique();
             $table->string('api_token')->unique()->nullable();
             $table->string('img_profile')->nullable();
+            $table->boolean('is_online')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\User;
+use App\Models\Message;
 use Illuminate\Support\Facades\Broadcast;
 
 /*
@@ -17,7 +19,6 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
 
-
-Broadcast::channel('status-update', function ($user) {
-    return $user;
+Broadcast::channel('PrivateChat.user.{user}', function (User $user, int $message) {
+    return $user->id === Message::findOrNew($message)->recipient_id;
 });
