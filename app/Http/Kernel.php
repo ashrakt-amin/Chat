@@ -40,14 +40,15 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
-        'api' => [
-            \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-            'throttle:api',
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \Illuminate\Routing\Middleware\ThrottleRequests::class . ':api',
+            'api' => [
+                \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+                'throttle:api',
+                \Illuminate\Routing\Middleware\SubstituteBindings::class,
+                \Illuminate\Routing\Middleware\ThrottleRequests::class . ':api',
+               
+            ],
            
-        ],
-    ];
+        ];
 
     /**
      * The application's route middleware.
